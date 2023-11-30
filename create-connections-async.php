@@ -8,7 +8,7 @@ $start_time = microtime(true);
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$db_name = 'bitrix_local';
+$db_name = 'mysql';
 $pdo = new PDO("mysql:host=$host;dbname=$db_name", $user , $pass);
 
 for ($month = 1; $month <= 12; $month++) {
