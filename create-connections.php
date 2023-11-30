@@ -1,6 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
+require_once 'function.php';
 
 $start_time = microtime(true);
 
@@ -30,13 +31,3 @@ for ($month = 1; $month <= 12; $month++) {
 $finish = microtime(true);
 
 writeToLog('Script ended', $start_time, $finish);
-
-function writeToLog(string $message, float $start, float $finish): void
-{
-    $diff = $finish - $start;
-    $log = "\n------------------------\n";
-    $log .= date("Y.m.d H:i:s") . "\n";
-    $log .= print_r(['message' => $message, 'start' => $start, 'finish' => $finish, 'total' => $diff], true);
-    $log .= "\n------------------------\n";
-    file_put_contents(__DIR__ . "/log.log", $log, FILE_APPEND);
-}
