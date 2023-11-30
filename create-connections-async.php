@@ -12,14 +12,14 @@ $db_name = 'bitrix_local';
 $pdo = new PDO("mysql:host=$host;dbname=$db_name", $user , $pass);
 
 for ($month = 1; $month <= 12; $month++) {
-    \React\Async\async(function () use($host, $db_name, $user, $pass) {
+    \React\Async\async(function () use($host, $db_name, $user, $pass, $month) {
         $open_start = microtime(true);
 
         $pdo = new PDO("mysql:host=$host;dbname=$db_name", $user , $pass);
 
         $open_ended = microtime(true);
 
-        writeToLog('Opening connection', $open_start, $open_ended);
+        writeToLog('async', 'Opening connection', $open_start, $open_ended, $month);
 
         for ($i = 0; $i < 300; $i++) {
             $time = microtime(true);
@@ -32,4 +32,4 @@ for ($month = 1; $month <= 12; $month++) {
 
 $finish = microtime(true);
 
-writeToLog('Script ended', $start_time, $finish);
+writeToLog('async', 'Script ended', $start_time, $finish);

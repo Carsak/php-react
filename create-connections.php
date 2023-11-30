@@ -18,7 +18,7 @@ for ($month = 1; $month <= 12; $month++) {
 
     $open_ended = microtime(true);
 
-    writeToLog('Opening connection', $open_start, $open_ended);
+    writeToLog('sync', 'Opening connection', $open_start, $open_ended, $month);
 
     for ($i = 0; $i < 300; $i++) {
         $time = microtime(true);
@@ -30,4 +30,4 @@ for ($month = 1; $month <= 12; $month++) {
 
 $finish = microtime(true);
 
-writeToLog('Script ended', $start_time, $finish);
+writeToLog('sync', 'Script ended', $start_time, $finish);
