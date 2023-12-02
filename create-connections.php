@@ -5,27 +5,15 @@ require_once 'function.php';
 
 $start_time = microtime(true);
 
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$db_name = 'mysql';
-$pdo = new PDO("mysql:host=$host;dbname=$db_name", $user , $pass);
 
 for ($month = 1; $month <= 12; $month++) {
     $open_start = microtime(true);
 
-    $pdo = new PDO("mysql:host=$host;dbname=$db_name", $user , $pass);
+    file_get_contents('https://httpbin.org/delay/1');
 
     $open_ended = microtime(true);
 
     writeToLog('sync', 'Opening connection', $open_start, $open_ended, $month);
-
-    for ($i = 0; $i < 300; $i++) {
-        $time = microtime(true);
-        $result = $pdo->query("SELECT SQL_NO_CACHE $time");
-        $result->fetch();
-    }
-    unset($pdo);
 }
 
 $finish = microtime(true);
