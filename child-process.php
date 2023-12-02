@@ -10,6 +10,7 @@ $stream = new \React\Stream\ReadableResourceStream(STDIN);
 $month = '';
 
 $stream->on('data', function ($data) use($start_time, $stream, &$month) {
+    // IO blocking operation, will finish in ~1 second
     file_get_contents('https://httpbin.org/delay/1');
 
     $month = $data;
