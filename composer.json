@@ -1,5 +1,7 @@
 {
-    "require": {
-        "react/async": "4.2"
-    }
+  "require": {
+    "react/async": "4.2",
+    "ext-pdo": "*",
+    "react/child-process": "0.6.5"
+  }
 }
